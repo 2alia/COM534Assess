@@ -11,26 +11,27 @@ class Admin (
         println("Enter the username of the user to delete : ")
         val username = readln()
 
-        val user = users.find { it.username == username }
+        val user = users.find { it.username.equals(username, ignoreCase = true)}
 
         if (user != null) {
             users.remove(user)
-            println("User $username has been deleted.")
+            println("User ${user.username} has been deleted.")
         } else {
-            println("User not found.")
+            println("User $username not found. It might have been deleted.")
         }
     }
     private fun deleteRoom() {
         println("Enter room number to delete:")
         val roomNumber = readln()
 
-        val room = rooms.find { it.roomNumber == roomNumber }
+        val room = rooms.find { it.roomNumber.equals(roomNumber, ignoreCase = true) }
+
 
         if (room != null) {
             rooms.remove(room)
-            println("Room $roomNumber has been deleted.")
+            println("Room ${room.roomNumber} has been permanently deleted.")
         } else {
-            println("Room not found.")
+            println("Room $roomNumber not found. It might have been deleted.")
         }
     }
 
@@ -47,7 +48,8 @@ class Admin (
             println("Room $roomNumber has been updated to use $newOsType computers.")
         } else {
             println("Room not found")
-        }}
+        }
+   }
 
      private   fun modifyUserDetails() {
             println("Enter the username of the user to modify:")
