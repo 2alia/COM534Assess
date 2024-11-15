@@ -1,7 +1,7 @@
 open class User(val username:String, var password:String, var isAdmin:Boolean = false, var contactDetails: String = ""){
 
      open fun Menu() {
-        println("hello")
+        println("Greetings")
      }
  }
 
@@ -12,6 +12,7 @@ fun signUp():User{
     var password:String
     var choice:String
     var contactDetails: String
+
 
     do {
         println("1 SignUp as Admin:")

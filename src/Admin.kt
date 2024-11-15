@@ -70,42 +70,54 @@ class Admin (
             println("Admin Menu Access:")
             println("Enter Admin Username:")
             val adminUserName = readln().trim()
+           if (adminUserName.isBlank()) {
+               println("Username cannot be empty")
+               return
+           }
+
+
             println("Enter Admin password:")
-            val adminPassword = readln().trim()
+           val adminPassword = readln().trim()
+           if (adminPassword.isBlank()) {
+               println("Password cannot be empty")
+               return
+           }
 
             val admin = users.find { it.username == adminUserName && it.password == adminPassword }
 
             if (admin != null && admin.isAdmin) {
                 println("Access granted. Welcome,Admin.${adminUserName}.")
 
-                println("Admin Menu:")
-                println("1. Modify room details")
-                println("2. Delete a room")
-                println("3. Modify user details")
-                println("4. Delete a user")
-                println("5. Exit")
+                var exit = false
 
-                when (readln().toInt()) {
-                    1 -> modifyRoomDetails()
-                    2 -> deleteRoom()
-                    3 -> modifyUserDetails()
-                    4 -> deleteUser()
-                    5 -> {
-                        println("Exiting admin menu.")
+                while (!exit) {
+                    println("Admin Menu:")
+                    println("1. Modify room details")
+                    println("2. Delete a room")
+                    println("3. Modify user details")
+                    println("4. Delete a user")
+                    println("5. Exit")
 
+                    when (readln().toIntOrNull()) {
+                        1 -> modifyRoomDetails()
+                        2 -> deleteRoom()
+                        3 -> modifyUserDetails()
+                        4 -> deleteUser()
+                        5 -> {
+                            println("Exiting admin menu.. Goodbye, Admin $adminUserName.")
+                            exit = true
+
+                        }
+
+                        else -> println("Invalid option. Please try again.")
                     }
-                    else -> println("Invalid option. Please try again.")
+                    println("------------")
                 }
-
             } else {
                 println("Access denied. You are not authorized to access the admin menu.")
             }
         }
-
-
-
-
-}
+    }
 
 
 
