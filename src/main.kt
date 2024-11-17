@@ -1,9 +1,14 @@
 fun main(){
     println("Welcome to the Computer Reservation System!")
 
+//    val loginInstance=Login()
+//
+//    loginInstance.login()
+
+
     signUp()
 
     adminMenu()
 
-    println("Existing the program...")
+    println("Exiting the program...")
 }

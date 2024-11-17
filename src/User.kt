@@ -1,6 +1,6 @@
 data class User(val username:String, var password:String, var isAdmin:Boolean = false, var contactDetails: String = "")
 
-val users = mutableListOf<User>()
+val users = mutableListOf<User>(User("ben", "ten", isAdmin = false, contactDetails= "1"))
 
 fun signUp(){
     var username: String
