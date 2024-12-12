@@ -1,14 +1,5 @@
+// -------------------------------GROUP AUTHORS DAFE EDESIRI OTUDJE,ADAM ALI AND DANIEL ADEYEMI --------------------------------------
+// We cleaned up the main function by introducing a manager class called BookingManagementApplication
 fun main(){
-    println("Welcome to the Computer Reservation System!")
-
-//    val loginInstance=Login()
-//
-//    loginInstance.login()
-
-
-    signUp()
-
-    adminMenu()
-
-    println("Exiting the program...")
+    BookingManagementApplication().run()
 }
